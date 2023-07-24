@@ -1,0 +1,612 @@
+/* CSS Stylesheet */
+
+/* Global Styling */
+    body {
+        margin: 0;
+        background-color: #eeeeef;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+        color: #636b72;
+    }
+
+
+
+/* Styling for Header of Website */
+    header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: #ffffff;
+        padding-bottom: 15px;
+    }
+
+    nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+    }
+
+/* Left + Right Menu CSS */
+    .leftMenu,
+    .rightMenu {
+        display: flex;
+        align-items: center;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        padding-top: 1%;
+    }
+
+    .leftMenu {
+        padding-left: 2%;
+        margin-left: 18%;
+    }
+
+    .rightMenu {
+        padding-right: 2%;
+    }
+
+    .leftMenu li:not(:last-child) {
+        margin-right: 15px;
+    }
+
+    .searchForm {
+        height: 40px;
+        background-color: #f0f3ff;
+        border-style: none;
+        border-radius: 6%;
+    }
+
+    .searchMenu {
+        display: flex;
+        align-items: center;
+        margin-right: 10px;
+    }
+
+    .searchMenu .btn {
+        border-style: none;
+        background-color: #f0f3ff;
+    }
+
+    .dropdownMenu {
+        margin-left: 10px;
+    }
+
+    .dropdownMenu img {
+        width: 30px;
+        height: 30px;
+    }
+
+/* CSS for the sidebarNavigation collapsible menu */
+
+    /* Primary CSS */
+
+        .sidebar {
+            padding: 20px;
+            padding-top: 1%;
+        }
+
+        #sidebarNavigation {
+            width: 18%;
+            position: fixed;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            background-color: #ffffff;
+            border-right: 1px solid #eeeeef;
+            transition: width 0.3s ease;
+            overflow-x: auto;
+          }
+          
+          .collapse {
+            width: 0; /* Set the collapsed width to 0 */
+          }
+    
+    /* Logo */
+
+        .logo img {
+            max-width: 100%;
+        }
+
+    /* Sidebar Menu */
+
+        .sidebar {
+            padding-left: 0;
+            padding-right: 0;
+        }
+
+        .sidebarMenu nav ul {
+            padding-left: 0;
+            width: 100%;
+            
+        }
+
+        .sidebarMenu nav ul li {
+            padding-left: 5%;
+            padding-right: 5%;
+        }
+
+        .sidebarMenu {
+            max-width: 100%;
+            
+        }
+
+        .sidebarMenu h3 {
+            font-size: 1.5rem;
+        }
+
+        .sidebarMenu > h3 {
+            padding-left: 5%;
+            color: #636b72;
+            text-transform: uppercase;
+            font-size: 1.5rem;
+        }
+
+        .sidebarMenu li {
+            display: flex;
+            align-items: center;
+            justify-content: start;
+            height: 50px;
+        }
+        
+        .sidebarMenu li h3 {
+            margin-left: auto;
+        }
+          
+        .sidebarMenu li svg,
+        .sidebarMenu li h2 {
+            display: flex;
+            align-items: center;
+        }
+          
+        .sidebarMenu li svg {
+            margin-right: 10px;
+            
+        }
+
+        .sidebarMenu li svg, .sidebarMenu li h2, .sidebarMenu li h3 {
+            margin-top: 2%;
+            margin-bottom: 2%;
+        }
+
+        .sidebarHighlighted {
+            background-color: #f0f3ff;
+        } 
+
+        .sidebar nav ul li:hover {
+            background-color: #f0f3ff;
+        }
+
+/* CSS For the Primary Page Content */
+
+    /* Setting everything contained within Section 'dashboardContent' to have 20% padding on page load. */
+        
+        #dashboardContent {
+            margin-left: 18%;
+        }
+
+
+    /* CSS For Fonts + Colours */
+
+        .metricIncrease {
+            color: #4caf50;
+        }
+
+        .metricDecrease {
+            color: #ff9800;
+        }
+
+
+    /* CSS for Flexbox/Alignment */
+
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-right: 0;
+        }
+        
+        [class="col-12 col-sm-6 col-md-3"] {
+            flex: 0 0 22%;
+            background-color: white;
+            border-radius: 10px;
+            margin: 1%;
+            box-sizing: border-box;
+            box-shadow: 0 0.46875rem 2.1875rem rgba(90,97,105,.1), 0 0.9375rem 1.40625rem rgba(90,97,105,.1), 0 0.25rem 0.53125rem rgba(90,97,105,.12), 0 0.125rem 0.1875rem rgba(90,97,105,.1);
+        }
+
+        .flexContainer {
+            display: flex;
+            justify-content: space-between;
+            padding: 2%;
+            padding-bottom: 0;
+            padding-top: 2%;
+        }
+
+        .container {
+            margin-left: 0px;
+            margin-right: 0px;
+            padding-left: 0px;
+            padding-right: 0px;
+            width: 100%;
+        }
+
+    /* CSS for card content */
+
+        .cardContentLeft h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .cardContentLeft h2 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-top: 0;
+        }
+
+        .cardContentLeft h4 {
+            font-size: 1.4rem;
+            font-weight: 400;
+            margin-top: 20px;
+        }
+
+        .cardContentRight {
+            float: right;
+            width: 50%;
+        }
+
+        .imageContainer {
+            width: 100%;
+            height: 100px;
+            overflow: hidden;
+          }
+          
+          .imageContainer img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+          }
+
+    /* CSS for the Revenue Chart (2nd row on Dashboard) */
+
+        .col-sm-12 {
+            background-color: white;
+            border-radius: 10px;
+            margin: 2%;
+            box-sizing: border-box;
+            box-shadow: 0 0.46875rem 2.1875rem rgba(90,97,105,.1), 0 0.9375rem 1.40625rem rgba(90,97,105,.1), 0 0.25rem 0.53125rem rgba(90,97,105,.12), 0 0.125rem 0.1875rem rgba(90,97,105,.1);
+        }
+
+        .reportFullWidth h3 {
+            margin-top: 0px;
+        }
+
+        /* Button CSS */
+
+            .orangeAccent {
+                border-radius: 10px;
+                box-shadow: 0 2px 6px #ffc473;
+                background-color: #ffa426;
+                border-color: #ffa426;
+                color: #fff;
+                border:none;
+                padding: 5px 15px 5px 15px;
+            }
+
+            .purpleAccent {
+                border-radius: 10px;
+                box-shadow: 0 2px 6px #acb5f6;
+                background-color: #6777ef;
+                border-color: rgba(0,0,0,0);
+                color: #fff;
+                border:none;
+                padding: 5px 15px 5px 15px;
+            }
+
+        /* Chart and Table CSS */
+
+            .internalFlexContainer {
+                display: flex;
+                justify-content: start;
+                align-items: center;
+                padding: 2%;
+            }
+
+            .reportFullWidth {
+                max-width: 80%;
+            }
+
+            .reportFullWidth img {
+                max-width: 100%;
+                height: auto;
+                display: block;
+                margin: 0 auto;
+            }
+
+            .reportFullWidth table tr {
+                margin-bottom: 5%;
+            }
+              
+            .revenueChartTable table {
+                border-collapse: collapse;
+              }
+          
+            .revenueChartTable tr {
+                padding: 10px;
+              }
+          
+            .revenueChartTable th, td {
+                padding: 8px;
+              }
+
+        /* CSS for the quickview metrics within Revenue Chart */
+
+            .revenueChartMetrics {
+                max-width: 80%;
+                padding-left: 5%;
+                padding-right: 5%;
+                padding-bottom: 2%;
+            }
+
+            .revenueChartMetrics .flexContainer {
+                padding-top: 0;
+            }
+
+            .revenueChartMetricsCard {
+                text-align: center;
+            }
+
+            .revenueChartMetricsCard h3, .revenueChartMetricsCard h2 {
+                margin-top: 0;
+                margin-bottom: 0;
+                font-size: 1.5rem;
+
+            }
+
+    /* CSS for the 3 Charts (3rd Row) */
+
+        .col-sm-4 {
+            background-color: white;
+            border-radius: 10px;
+            box-sizing: border-box;
+            box-shadow: 0 0.46875rem 2.1875rem rgba(90,97,105,.1), 0 0.9375rem 1.40625rem rgba(90,97,105,.1), 0 0.25rem 0.53125rem rgba(90,97,105,.12), 0 0.125rem 0.1875rem rgba(90,97,105,.1);
+            width: 30%;
+        }
+
+        .flexContainer img {
+            max-width: 100%;
+        }
+
+        .col-sm-4 .flexContainer {
+            padding-left: 0;
+            padding-right: 0;
+        }
+
+    /* CSS for the 4th Row (assign task table) */
+
+        /* CSS for Header + Search */
+        
+            .reportSearch {
+                display: flex;
+            }
+
+            .reportSearch input {
+                border: 1px solid #ced4da;
+                border-radius: 30px 0 0 30px;
+                padding-left: 10px;
+            }
+
+            .reportSearch button {
+                border-radius: 0 30px 30px 0;
+                background-color: #6777ef;
+                border-color: rgba(0,0,0,0) !important;
+                color: #fff;
+            }
+        
+        /* CSS for Table */
+
+
+            .assignTaskChartTable {
+                width: 100%;
+            }
+
+            .assignTaskChartTable table {
+                width: 100%;
+                border-collapse: collapse;
+              }
+          
+              .assignTaskChartTable th, .assignTaskChartTable td {
+                padding: 8px;
+                text-align: left;
+                border-bottom: 1px solid #ddd;
+              }
+          
+              .assignTaskChartTable th {
+                background-color: #f2f2f2;
+                text-align: left;
+              }
+
+          
+              .assignTaskChartTable tr:nth-child(even) {
+                background-color: #f2f2f2;
+              }
+          
+              .assignTaskChartTable tr:hover {
+                background-color: #ddd;
+              }
+          
+              .assignTaskChartTable .progressBar {
+                width: 100%;
+                background-color: #ddd;
+                border-radius: 5px;
+              }
+          
+              .assignTaskChartTable .progress {
+                height: 8px;
+                border-radius: 5px;
+              }
+          
+              .assignTaskChartTable .actionBtn {
+                padding: 4px 8px;
+                border: 1px solid #6777ef;
+                color: #6777ef;
+                background-color: rgba(0,0,0,0);
+                border-radius: 3px;
+                cursor: pointer;
+              }
+
+
+    /* CSS for the 5th Row (Support tickets + Projects Payments) */
+
+        /* Support Tickets */ 
+
+            .col-sm-6 {
+                background-color: white;
+                border-radius: 10px;
+                box-sizing: border-box;
+                box-shadow: 0 0.46875rem 2.1875rem rgba(90,97,105,.1), 0 0.9375rem 1.40625rem rgba(90,97,105,.1), 0 0.25rem 0.53125rem rgba(90,97,105,.12), 0 0.125rem 0.1875rem rgba(90,97,105,.1);
+                width: 46%;
+                margin-bottom: 5%;
+            }
+
+            .supportTicketsTable {
+                border-collapse: collapse;
+                width: 100%;
+            }
+            .supportTicketsTable th, .supportTicketsTable td {
+                padding: 8px;
+                text-align: left;
+            }
+            .supportTicketsTable th {
+                display: none;
+
+            }
+
+        /* Projects Payments */ 
+
+            .projectsPaymentsTable {
+                width: 100%;
+            }
+
+            .projectsPaymentsTable table {
+                width: 100%;
+                border-collapse: collapse;
+                font-family: Arial, sans-serif;
+            }
+            
+            .projectsPaymentsTable caption {
+                font-size: 1.2em;
+                font-weight: bold;
+                margin-bottom: 10px;
+            }
+            
+            .projectsPaymentsTable thead {
+                background-color: #f2f2f2;
+            }
+            
+            .projectsPaymentsTable th, .projectsPaymentsTable td {
+                padding: 10px;
+                text-align: left;
+            }
+            
+            .projectsPaymentsTable th {
+                background-color: #f2f2f2;
+            }
+            
+            .projectsPaymentsTable tbody tr:hover {
+                background-color: #f2f2f2;
+            }
+            
+    
+    /* Media Breakpoints for Site Responsiveness */ 
+
+        /* Default styling for all screen sizes (col-12 col-sm-6 col-md-3) */
+            [class="col-12 col-sm-6 col-md-3"] {
+                flex: 0 0 22%;
+                background-color: white;
+                border-radius: 10px;
+                margin: 1%;
+                box-sizing: border-box;
+                box-shadow: 0 0.46875rem 2.1875rem rgba(90, 97, 105, .1), 0 0.9375rem 1.40625rem rgba(90, 97, 105, .1), 0 0.25rem 0.53125rem rgba(90, 97, 105, .12), 0 0.125rem 0.1875rem rgba(90, 97, 105, .1);
+            }
+  
+
+        /* Extra small devices (phones, 600px and down) */
+        @media only screen and (max-width: 600px) {
+            [class="col-12 col-sm-6 col-md-3"] {
+            flex: 0 0 100%; /* One element per row */
+            margin-right: 0;
+            }
+            .internalFlexContainer {
+                flex-direction: column;
+            }
+            .revenueChartMetrics {
+                max-width: 100%;
+            }
+            .reportFullWidth {
+                max-width: 100%;
+            }
+            [class="col-sm-4"] {
+                flex: 0 0 100%; /* One element per row */
+                margin-right: 0;
+            }
+            .flexContainer img {
+                width: 100%;
+            }
+                /* Apply styles to the table container to enable horizontal scrolling */
+            .tableWrapper {
+                overflow-x: auto;
+                max-width: 100%;
+            }
+            .col-sm-12 {
+                width: 100%;
+            }
+            [class="col-sm-6"] {
+                flex: 0 0 100%; /* One element per row on devices under 600px */
+                margin-right: 0;
+            }
+            .col-sm-6 {
+                padding-right: 0px;
+            }
+        }
+
+        /* Small + Medium devices (portrait tablets and large phones, 600px and up) */
+            @media only screen and (min-width: 600px) {
+                [class="col-12 col-sm-6 col-md-3"] {
+                flex: 0 0 48%; /* Two elements per row */
+                margin-right: 2%;
+                }
+                [class="col-12 col-sm-6 col-md-3"]:nth-child(2n) {
+                margin-right: 0;
+                }
+                .tableWrapper {
+                    width: 90%;
+                }
+            }
+  
+        /* Large devices (laptops/desktops, 992px and up) */
+            @media only screen and (min-width: 992px) {
+                [class="col-12 col-sm-6 col-md-3"] {
+                flex: 0 0 21%; /* Four elements per row */
+                margin-right: 2%;
+                }
+                [class="col-12 col-sm-6 col-md-3"]:nth-child(4n) {
+                margin-right: 0;
+                }
+                .tableWrapper {
+                    width: 100%;
+                }
+            }
+        
+
+    
+
+
+
+
+
+            
+

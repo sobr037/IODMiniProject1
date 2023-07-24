@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html>
+    <head> 
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Otika Dashboard</title>
+        <meta name="description" content="A responsive business dashboard for businesses">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/styles.css"> <!-- External CSS -->
+    </head>
+
+    <body>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>    
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+        <header> <!-- Header of website -->
+            <nav>
+                
+                <ul class="leftMenu">
+                    <li>  <!-- Hamburger button to collapse/Expand sidebar menu -->
+                        <a href="#" id="sidebarToggle" data-toggle="collapse" data-target="#sidebarNavigation" onclick="toggleSidebar()">
+                            <svg viewBox="0 0 100 80" width="24" height="24">
+                                <rect width="100" height="10"></rect>
+                                <rect y="30" width="100" height="10"></rect>
+                                <rect y="60" width="100" height="10"></rect>
+                            </svg>
+                        </a>
+                    </li>
+                    <li> <!-- Button to enter/exit fullscreen mode -->
+                        <a href="">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-maximize"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"></path></svg>
+                        </a>       
+                    </li> 
+
+                    <li> <!-- Search bar -->
+                        <form class="searchForm">
+                            <div class="searchMenu">
+                              <input class="searchForm" type="search" placeholder="Search" aria-label="Search">
+                              <button class="btn" type="submit">Submit</button>
+                            </div>
+                          </form>
+                    </li>
+                </ul>
+
+                <ul class="rightMenu"> 
+
+                    <li class="dropdownMenu"> <!-- Messaged icon with collapsable list -->
+                        <a href="">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-mail"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                        </a>
+                    </li>
+
+                    <li class="dropdownMenu"> <!-- Notifications icon with collapsable list -->
+                        <a href="">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-bell bell"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path><path d="M13.73 21a2 2 0 0 1-3.46 0"></path></svg>
+                        </a>
+                    </li> 
+
+                    <li class="dropdownMenu"> <!-- Profile Picture with collapsable list -->
+                        <a href="">
+                           <img src="/assets/icon.png" alt="Headshot of logged in user">
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+
+        <section id="sidebarNavigation" class="collapse in"> <!-- Left hand sidebar navigation menu -->
+            <div class="sidebar">
+                <!-- Business Logo -->
+                    <div class="logo">
+                        <img src="/assets/logo.png" alt="Otika Business Logo">
+                    </div>
+                <!-- 'MAIN' menu (4 children) -->
+                    <div class="sidebarMenu">
+                        <h3>Main</h3>
+                        <nav>
+                            <ul>
+                                <li class="sidebarHighlighted">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-monitor"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
+                                    <h2>Dashboard</h2>
+                                </li>
+                                <li>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-briefcase"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
+                                    <h2>Widgets</h2>
+                                    <h3>+</h3>
+                                </li>
+                                <li>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-command"><path d="M18 3a3 3 0 0 0-3 3v12a3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3H6a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3V6a3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3h12a3 3 0 0 0 3-3 3 3 0 0 0-3-3z"></path></svg>
+                                    <h2>Apps</h2>
+                                    <h3>+</h3>
+                                </li>
+                                <li>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-mail"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                                    <h2>Email</h2>
+                                    <h3>+</h3>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                <!-- 'UI ELEMENTS' menu (3 children) -->
+                    <div class="sidebarMenu">
+                        <h3>UI Elements</h3>
+                        <nav>
+                            <ul>
+                                <li>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-copy"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                                    <h2>Basic Components</h2>
+                                    <h3>+</h3>
+                                </li>
+                                <li>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-shopping-bag"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+                                    <h2>Advanced</h2>
+                                    <h3>+</h3>
+                                </li>
+                                <li>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file"><path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path><polyline points="13 2 13 9 20 9"></polyline></svg>
+                                    <h2>Blank Page</h2>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                <!-- 'OTIKA' menu (4 children) -->
+                    <div class="sidebarMenu">
+                        <h3>Otika</h3>
+                        <nav>
+                            <ul>
+                                <li>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-layout"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="9" y1="21" x2="9" y2="9"></line></svg>
+                                    <h2>Forms</h2>
+                                    <h3>+</h3>
+                                </li>
+                                <li>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-grid"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+                                    <h2>Tables</h2>
+                                    <h3>+</h3>
+                                </li>
+                                <li>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-pie-chart"><path d="M21.21 15.89A10 10 0 1 1 8 2.83"></path><path d="M22 12A10 10 0 0 0 12 2v10z"></path></svg>
+                                    <h2>Charts</h2>
+                                    <h3>+</h3>
+                                </li>
+                                <li>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-feather"><path d="M20.24 12.24a6 6 0 0 0-8.49-8.49L5 10.5V19h8.5z"></path><line x1="16" y1="8" x2="2" y2="22"></line><line x1="17.5" y1="15" x2="9" y2="15"></line></svg>
+                                    <h2>Icons</h2>
+                                    <h3>+</h3>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                <!-- 'MEDIA' menu (3 children) -->
+                    <div class="sidebarMenu">
+                        <h3>Media</h3>
+                        <nav>
+                            <ul>
+                                <li>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-image"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
+                                    <h2>Gallery</h2>
+                                    <h3>+</h3>
+                                </li>
+                                <li>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-flag"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"></path><line x1="4" y1="22" x2="4" y2="15"></line></svg>
+                                    <h2>Sliders</h2>
+                                    <h3>+</h3>
+                                </li>
+                                <li>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-sliders"><line x1="4" y1="21" x2="4" y2="14"></line><line x1="4" y1="10" x2="4" y2="3"></line><line x1="12" y1="21" x2="12" y2="12"></line><line x1="12" y1="8" x2="12" y2="3"></line><line x1="20" y1="21" x2="20" y2="16"></line><line x1="20" y1="12" x2="20" y2="3"></line><line x1="1" y1="14" x2="7" y2="14"></line><line x1="9" y1="8" x2="15" y2="8"></line><line x1="17" y1="16" x2="23" y2="16"></line></svg>
+                                    <h2>Timeline</h2>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                <!-- 'MAPS' menu (2 children) -->
+                    <div class="sidebarMenu">
+                        <h3>Maps</h3>
+                        <nav>
+                            <ul>
+                                <li>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-map"><polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"></polygon><line x1="8" y1="2" x2="8" y2="18"></line><line x1="16" y1="6" x2="16" y2="22"></line></svg>
+                                    <h2>Google Maps</h2>
+                                    <h3>+</h3>
+                                </li>
+                                <li>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-map-pin"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                                    <h2>Vector Map</h2>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                <!-- 'PAGES' menu (4 children) -->
+                    <div class="sidebarMenu">
+                        <h3>Pages</h3>
+                        <nav>
+                            <ul>
+                                <li>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-user-check"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="8.5" cy="7" r="4"></circle><polyline points="17 11 19 13 23 9"></polyline></svg>
+                                    <h2>Auth</h2>
+                                    <h3>+</h3>
+                                </li>
+                                <li>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-alert-triangle"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12" y2="17"></line></svg>
+                                    <h2>Errors</h2>
+                                    <h3>+</h3>
+                                </li>
+                                <li>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-anchor"><circle cx="12" cy="5" r="3"></circle><line x1="12" y1="22" x2="12" y2="8"></line><path d="M5 12H2a10 10 0 0 0 20 0h-3"></path></svg>
+                                    <h2>Other pages</h2>
+                                    <h3>+</h3>
+                                </li>
+                                <li>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevrons-down"><polyline points="7 13 12 18 17 13"></polyline><polyline points="7 6 12 11 17 6"></polyline></svg>
+                                    <h2>Multilevel</h2>
+                                    <h3>+</h3>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+            </div>
+        </section>
+
+        <section id="dashboardContent"> <!-- Content (Reports) within the Dashboard -->
+
+            <div class="container"> 
+
+                <div class="row"> <!-- First row of reports within the Dashboard -->
+
+                    <div class="col-12 col-sm-6 col-md-3">
+                        <div class="flexContainer">
+                            <div class="cardContentLeft">
+                                <h3>New Bookings</h3>
+                                <h2>258</h2>
+                                <h4><span class="metricIncrease">10%</span> Increase</h4>
+                              </div>
+                              <div class="cardContentRight">
+                                <div class="imageContainer">
+                                    <img src="/assets/1.png" alt="">
+                                </div>
+                              </div>
+                        </div>
+                    
+                    </div>
+              
+                    <div class="col-12 col-sm-6 col-md-3">
+                        <div class="flexContainer">
+                            <div class="cardContentLeft">
+                                <h3>Customers</h3>
+                                <h2>1,287</h2>
+                                <h4><span class="metricDecrease">09%</span> Decrease</h4>
+                            </div>
+                            <div class="cardContentRight">
+                                <div class="imageContainer">
+                                    <img src="/assets/2.png" alt="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+              
+                    <div class="col-12 col-sm-6 col-md-3">
+                        <div class="flexContainer">
+                            <div class="cardContentLeft">
+                                <h3>New Project</h3>
+                                <h2>128</h2>
+                                <h4><span class="metricIncrease">18%</span> Increase</h4>
+                            </div>
+                            <div class="cardContentRight">
+                                <div class="imageContainer">
+                                    <img src="/assets/3.png" alt="">
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+              
+                    <div class="col-12 col-sm-6 col-md-3">
+                        <div class="flexContainer">
+                            <div class="cardContentLeft">
+                                <h3>Revenue</h3>
+                                <h2>$48,697</h2>
+                                <h4><span class="metricIncrease">42%</span> Increase</h4>
+                            </div>
+                            <div class="cardContentRight">
+                                <div class="imageContainer">
+                                    <img src="/assets/4.png" alt="">
+                                </div>
+                              </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row"> <!--Revenue Chart Report -->
+                    <div class="col-sm-12">
+                        <div class="flexContainer">
+                            <div class="reportFullWidth">
+                                <h3>Revenue Chart</h3>
+                            </div>
+                            <div>
+                                <button class="orangeAccent">  Options  </button>
+                                <button class="purpleAccent">  View All  </button>
+                            </div>
+                        </div>
+
+                        <div class="internalFlexContainer">
+
+                            <div class="reportFullWidth">
+                                <img src="/assets/chart1.png" alt="">
+                            </div>
+
+                            <div id="revenueChartTable">
+                                <table cellspacing="0" cellpadding="8">
+                                    <tr>
+                                      <th class="hidden">Category</th>
+                                      <th class="hidden">Value</th>
+                                      <th class="hidden">Change</th>
+                                    </tr>
+                                    <tr>
+                                      <td>Total customers</td>
+                                      <td>8,257</td>
+                                      <td class="metricIncrease">+09%</td>
+                                    </tr>
+                                    <tr>
+                                      <td>Total Income</td>
+                                      <td>$9,857</td>
+                                      <td class="metricDecrease">-18%</td>
+                                    </tr>
+                                    <tr>
+                                      <td>Projects completed</td>
+                                      <td>28</td>
+                                      <td class="metricIncrease">+16%</td>
+                                    </tr>
+                                    <tr>
+                                      <td>Total expense</td>
+                                      <td>$6,287</td>
+                                      <td class="metricIncrease">+09%</td>
+                                    </tr>
+                                    <tr>
+                                      <td>New Customers</td>
+                                      <td>684</td>
+                                      <td class="metricIncrease">+22%</td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+
+                        <div>
+                            <div class="revenueChartMetrics">
+                                <div class="flexContainer">
+                                    <div class="revenueChartMetricsCard">
+                                        <svg class="metricIncrease" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-up-circle col-green"><circle cx="12" cy="12" r="10"></circle><polyline points="16 12 12 8 8 12"></polyline><line x1="12" y1="16" x2="12" y2="8"></line></svg>
+                                        <h3>$675</h3>
+                                        <h2>Weekly Earnings</h2>
+                                    </div>
+                                    <div class="revenueChartMetricsCard">
+                                        <svg class="metricDecrease" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-down-circle col-orange"><circle cx="12" cy="12" r="10"></circle><polyline points="8 12 12 16 16 12"></polyline><line x1="12" y1="8" x2="12" y2="16"></line></svg>
+                                        <h3>$1,587</h3>
+                                        <h2>Monthly Earnings</h2>
+                                    </div>
+                                    <div class="revenueChartMetricsCard">
+                                        <svg class="metricIncrease" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-up-circle col-green"><circle cx="12" cy="12" r="10"></circle><polyline points="16 12 12 8 8 12"></polyline><line x1="12" y1="16" x2="12" y2="8"></line></svg>
+                                        <h3>$45,965</h3>
+                                        <h2>Yearly Earnings</h2>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row"> <!-- Third Row of Charts within the Dashboard -->
+
+                    <div class="col-sm-4">
+                        <div class="flexContainer">
+                            <h4>Chart</h3>
+                        </div>
+                        <div class="flexContainer">
+                            <img src="/assets/chart2.png" alt="">
+                        </div>
+                    </div>
+
+                    <div class="col-sm-4">
+                        <div class="flexContainer">
+                            <h4>Chart</h3>
+                        </div>
+                        <div class="flexContainer">
+                            <img src="/assets/chart3.png" alt="">
+                        </div>
+                    </div>
+
+                    <div class="col-sm-4">
+                        <div class="flexContainer">
+                            <h4>Chart</h3>
+                        </div>
+                        <div class="flexContainer">
+                            <img src="/assets/chart4.png" alt="">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row"> <!--Assign Task Table (4th Row) -->
+                    <div class="col-sm-12">
+                        <div class="flexContainer">
+                            <div class="reportFullWidth">
+                                <h3>Assign Task Table</h3>
+                            </div>
+                            <div class="reportSearch">
+                                <input type="text" id="searchBar" value="Search" onfocus="clearDefaultText()" onblur="restoreDefaultText()">
+                                <button>Q</button>
+                            </div>
+                        </div>
+
+                        <div class="internalFlexContainer">
+                            <div class="tableWrapper">
+                                <div class="assignTaskChartTable">
+                                    <table>
+                                        <thead>
+                                          <tr>
+                                            <th><input type="checkbox"></th>
+                                            <th>Task Name</th>
+                                            <th>Members</th>
+                                            <th>Task Status</th>
+                                            <th>Assign Date</th>
+                                            <th>Due Date</th>
+                                            <th>Priority</th>
+                                            <th>Action</th>
+                                          </tr>
+                                        </thead>
+                                        <tbody>
+                                          <tr>
+                                            <td><input type="checkbox"></td>
+                                            <td>Create a mobile app</td>
+                                            <td>Sam</td>
+                                            <td>
+                                              50%  
+                                              <div class="progressBar">
+                                                <div class="progress" style="width: 50%; background-color: #4CAF50;" ></div>
+                                              </div>
+                                            </td>
+                                            <td>14-02-2023</td>
+                                            <td>23-03-2023</td>
+                                            <td style="color: green;">Low</td>
+                                            <td><button class="actionBtn">Details</button></td>
+                                          </tr>
+                                          <tr>
+                                            <td><input type="checkbox"></td>
+                                            <td>Redesign homepage</td>
+                                            <td>Jessica</td>
+                                            <td>
+                                              40%
+                                              <div class="progressBar">
+                                                <div class="progress" style="width: 40%; background-color: red;"></div>
+                                              </div>
+                                            </td>
+                                            <td>12-01-2023</td>
+                                            <td>01-04-2023</td>
+                                            <td style="color: red;">High</td>
+                                            <td><button class="actionBtn">Details</button></td>
+                                          </tr>
+                                          <tr>
+                                            <td><input type="checkbox"></td>
+                                            <td>Backup database</td>
+                                            <td>David</td>
+                                            <td>
+                                                55%
+                                                <div class="progressBar">
+                                                    <div class="progress" style="width: 55%; background-color: purple;"></div>
+                                                </div>
+                                            </td>
+                                            <td>14-01-2023</td>
+                                            <td>22-03-2023</td>
+                                            <td style="color: blue;">Average</td>
+                                            <td><button class="actionBtn">Details</button></td>
+                                          </tr>
+                                          <tr>
+                                            <td><input type="checkbox"></td>
+                                            <td>Android App</td>
+                                            <td>Sarah</td>
+                                            <td>
+                                                70%
+                                                <div class="progressBar">
+                                                    <div class="progress" style="width: 70%; background-color: violet;"></div>
+                                                </div>
+                                            </td>
+                                            <td>18-02-2023</td>
+                                            <td>27-08-2023</td>
+                                            <td style="color: green;">Low</td>
+                                            <td><button class="actionBtn">Details</button></td>
+                                          </tr>
+                                          <tr>
+                                            <td><input type="checkbox"></td>
+                                            <td>Logo Design</td>
+                                            <td>Rebecca</td>
+                                            <td>
+                                              45%
+                                              <div class="progressBar">
+                                                <div class="progress" style="width: 45%; background-color: lightblue;"></div>
+                                              </div>
+                                            </td>
+                                            <td>12-01-2023</td>
+                                            <td>01-04-2023</td>
+                                            <td style="color: red;">High</td>
+                                            <td><button class="actionBtn">Details</button></td>
+                                          </tr>
+                                          <tr>
+                                            <td><input type="checkbox"></td>
+                                            <td>Ecommerce website</td>
+                                            <td>Tyler</td>
+                                            <td>
+                                                30%
+                                                <div class="progressBar">
+                                                    <div class="progress" style="width: 30%; background-color: purple;"></div>
+                                                </div>
+                                            </td>
+                                            <td>02-01-2023</td>
+                                            <td>26-05-2023</td>
+                                            <td style="color: blue;">Average</td>
+                                            <td><button class="actionBtn">Details</button></td>
+                                          </tr>
+                                        </tbody>
+                                      </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <div class="row"> <!--Support Tickets (4th Row) -->
+                    <div class="row5">
+
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="flexContainer">
+                            <div class="reportFullWidth">
+                                <h3>Support Tickets</h3>
+                            </div>
+                            <div class="reportSearch">
+                                <input type="text" id="searchBar" value="Search" onfocus="clearDefaultText()" onblur="restoreDefaultText()">
+                                <button>Q</button>
+                            </div>
+                        </div>
+                        <div class="internalFlexContainer">
+                            <div class="supportTicketsTable">
+                                <table>
+                                    <tr>
+                                        <th>Reference</th>
+                                        <th>Subject</th>
+                                        <th>Details</th>
+                                        <th>Created by</th>
+                                        <th>Created Date</th>
+                                        <th>Type</th>
+                                    </tr>
+                                    <tr>
+                                        <td>#89754</td>
+                                        <td>Please add advance table</td>
+                                        <td>Hi, can you please add a new table for advan...</td>
+                                        <td>John Deo</td>
+                                        <td>1 day ago</td>
+                                        <td>Feature</td>
+                                    </tr>
+                                    <tr>
+                                        <td>#57854</td>
+                                        <td>Select item not working</td>
+                                        <td>Please check select item in advance form not work...</td>
+                                        <td>Sarah Smith</td>
+                                        <td>2 days ago</td>
+                                        <td>Bug</td>
+                                    </tr>
+                                    <tr>
+                                        <td>#85784</td>
+                                        <td>Are you provide template in Angular?</td>
+                                        <td>Can you provide a template in the latest Angular 8?</td>
+                                        <td>Ashton Cox</td>
+                                        <td>2 days ago</td>
+                                        <td>Query</td>
+                                    </tr>
+                                    <tr>
+                                        <td>#25874</td>
+                                        <td>About template page load speed</td>
+                                        <td>Hi, John, can you work on increasing the page speed of the template...</td>
+                                        <td>Hasan Basri</td>
+                                        <td>3 days ago</td>
+                                        <td>Enhancement</td>
+                                    </tr>
+                                </table>
+                
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-6">
+                        <div class="flexContainer">
+                            <div class="reportFullWidth">
+                                <h3>Projects Payments</h3>
+                            </div>
+                        </div>
+                        <div class="internalFlexContainer">
+                            <div class="projectsPaymentsTable">
+                                <table>
+                                    <thead>
+                                      <tr>
+                                        <th>#</th>
+                                        <th>Client Name</th>
+                                        <th>Date</th>
+                                        <th>Payment Method</th>
+                                        <th>Amount</th>
+                                      </tr>
+                                    </thead>
+                                    <tbody>
+                                      <tr>
+                                        <td>1</td>
+                                        <td>John Doe</td>
+                                        <td>11-08-2018</td>
+                                        <td>NEFT</td>
+                                        <td>$258</td>
+                                      </tr>
+                                      <tr>
+                                        <td>2</td>
+                                        <td>Cara Stevens</td>
+                                        <td>15-07-2018</td>
+                                        <td>PayPal</td>
+                                        <td>$125</td>
+                                      </tr>
+                                      <tr>
+                                        <td>3</td>
+                                        <td>Airi Satou</td>
+                                        <td>25-08-2018</td>
+                                        <td>RTGS</td>
+                                        <td>$287</td>
+                                      </tr>
+                                      <tr>
+                                        <td>4</td>
+                                        <td>Angelica Ramos</td>
+                                        <td>01-05-2018</td>
+                                        <td>CASH</td>
+                                        <td>$170</td>
+                                      </tr>
+                                      <tr>
+                                        <td>5</td>
+                                        <td>Ashton Cox</td>
+                                        <td>18-04-2018</td>
+                                        <td>NEFT</td>
+                                        <td>$970</td>
+                                      </tr>
+                                      <tr>
+                                        <td>6</td>
+                                        <td>John Deo</td>
+                                        <td>22-11-2018</td>
+                                        <td>PayPal</td>
+                                        <td>$854</td>
+                                      </tr>
+                                      <tr>
+                                        <td>7</td>
+                                        <td>Hasan Basri</td>
+                                        <td>07-09-2018</td>
+                                        <td>Cash</td>
+                                        <td>$128</td>
+                                      </tr>
+                                    </tbody>
+                                  </table>
+                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+              
+
+
+
+            
+            
+
+            <div class=""> <!-- 'Support Ticket' & 'Projects Payments' within Dashboard -->
+                <div class=""> <!--'Support Ticket' table -->
+                    <div class=""> <!--Header of table -->
+
+                    </div>
+    
+                    <div class=""> <!--Body of table -->
+    
+                    </div>
+                </div>
+
+                <div class=""> <!--'Projects Payments' table -->
+                    <div class=""> <!--Header of table -->
+
+                    </div>
+    
+                    <div class=""> <!--Body of table -->
+    
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer> <!--Footer of Website -->
+
+            <!--Copyright + Year -->
+            <!--Design Watermark -->
+
+        </footer>
+
+        <script src="/script.js"></script> <!-- External Javascript -->
+    </body>
+</html>
+
+<!-- comment -->
